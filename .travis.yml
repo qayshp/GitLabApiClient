@@ -11,7 +11,7 @@ script:
  - "sudo service docker stop"
  - "sudo service docker start"
  - "sudo docker-compose down --rmi all --volumes --remove-orphans"
- - "sudo docker-compose up --always-recreate-deps --force-recreate"
+#  - "sudo docker-compose up --always-recreate-deps --force-recreate"
  - cd ..
  - dotnet build
  - (cd ./test/GitLabApiClient.Test && dotnet test)
