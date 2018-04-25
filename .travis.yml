@@ -6,7 +6,11 @@ sudo: required
 services:
  - docker
 script:
- - (cd ./docker && docker-compose up --always-recreate-deps --force-recreate)
+ - set +e -x
+ - cd ./docker
+ - docker-compose down --rmi all --volumes --remove-orphans
+ - docker-compose up --always-recreate-deps --force-recreate
+ - cd ..
  - dotnet build
  - (cd ./test/GitLabApiClient.Test && dotnet test)
 cache:
