@@ -24,7 +24,9 @@ namespace GitLabApiClient.Test.Utilities
             };
 
             StopContainer();
+            await Task.Delay(10000);
             StartContainer();
+            await Task.Delay(10000);
             if (!await WaitForService())
                 throw new Exception("Failed to start container, timeout hit.");
         }
@@ -89,6 +91,7 @@ namespace GitLabApiClient.Test.Utilities
             {
                 try
                 {
+                    Debug.WriteLine("Checking if GitLab is running.");
                     var response = await _gitLabPingClient.GetAsync(GitLabApiPath);
                     if (response.IsSuccessStatusCode)
                     {
