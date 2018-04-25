@@ -41,7 +41,7 @@ namespace GitLabApiClient.Test.Utilities
             {
                 FileName = "docker-compose",
                 Arguments =
-                    $"-f {GitLabContainerPath}/docker-compose.yml up --detach"
+                    $"-f {GitLabContainerPath}/docker-compose.yml up -d"
             });
         }
  
