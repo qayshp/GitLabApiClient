@@ -6,6 +6,7 @@ sudo: required
 services:
  - docker
 script:
+  - set -x
 #  - cd ./docker
 #  - "sudo docker-compose down --rmi all --volumes --remove-orphans"
 #  - cd ..
