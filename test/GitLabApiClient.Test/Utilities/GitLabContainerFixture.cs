@@ -91,11 +91,11 @@ namespace GitLabApiClient.Test.Utilities
             {
                 try
                 {
-                    Console.WriteLine("Checking if GitLab is running.");
+                    Console.Error.WriteLine("Checking if GitLab is running.");
                     var response = await _gitLabPingClient.GetAsync(GitLabApiPath);
                     if (response.IsSuccessStatusCode)
                     {
-                        Console.WriteLine("GitLab started to respond!");
+                        Console.Error.WriteLine("GitLab started to respond!");
                         return true;
                     }
                 }
