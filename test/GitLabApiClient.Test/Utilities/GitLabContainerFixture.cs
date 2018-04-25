@@ -23,10 +23,8 @@ namespace GitLabApiClient.Test.Utilities
                 Timeout = TimeSpan.FromSeconds(1)
             };
 
-            StopContainer();
-            await Task.Delay(10000);
             StartContainer();
-            await Task.Delay(10000);
+
             if (!await WaitForService())
                 throw new Exception("Failed to start container, timeout hit.");
         }
