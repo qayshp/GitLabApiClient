@@ -23,6 +23,7 @@ namespace GitLabApiClient.Test.Utilities
                 Timeout = TimeSpan.FromSeconds(1)
             };
 
+            StopContainer();
             StartContainer();
             if (!await WaitForService())
                 throw new Exception("Failed to start container, timeout hit.");
@@ -40,12 +41,6 @@ namespace GitLabApiClient.Test.Utilities
             {
                 FileName = "docker-compose",
                 Arguments =
-                    $"-f {GitLabContainerPath}/docker-compose.yml down --rmi all --volumes --remove-orphans"
-            });
-            StartProcessAndWaitForExit(new ProcessStartInfo
-            {
-                FileName = "docker-compose",
-                Arguments =
                     $"-f {GitLabContainerPath}/docker-compose.yml up --detach"
             });
         }
@@ -56,7 +51,7 @@ namespace GitLabApiClient.Test.Utilities
             {
                 FileName = "docker-compose",
                 Arguments =
-                    $"-f {GitLabContainerPath}/docker-compose.yml down"
+                    $"-f {GitLabContainerPath}/docker-compose.yml down --rmi all --volumes --remove-orphans"
             };
 
             StartProcessAndWaitForExit(processStartInfo);
