@@ -40,7 +40,7 @@ namespace GitLabApiClient.Test.Utilities
             {
                 FileName = "docker-compose",
                 Arguments =
-                    $"-f {GitLabContainerPath}/docker-compose.yml up -d"
+                    $"-f {GitLabContainerPath}/docker-compose.yml up --detach  --always-recreate-deps --force-recreate"
             });
         }
  
